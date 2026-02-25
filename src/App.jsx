@@ -116,7 +116,7 @@ const Navbar = () => {
                 ref={menuRef}
                 className="fixed inset-0 h-[100dvh] bg-background/95 backdrop-blur-2xl z-40 flex flex-col justify-center items-center -translate-y-full md:hidden"
             >
-                <div className="flex flex-col items-center gap-8 mb-16">
+                <div className="flex flex-col items-center gap-8 mb-32">
                     <a href="#expedition" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.expeditions')}</a>
                     <a href="#pricing" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.pricing')}</a>
                     <a href="#social-proof" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.reviews')}</a>
