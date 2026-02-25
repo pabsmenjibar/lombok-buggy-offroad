@@ -47,6 +47,8 @@ const MagneticButton = ({ children, className = '', primary = false }) => {
 const Navbar = () => {
     const { t, i18n } = useTranslation();
     const navRef = useRef(null);
+    const menuRef = useRef(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     useEffect(() => {
         const ctx = gsap.context(() => {
             ScrollTrigger.create({
@@ -62,6 +64,20 @@ const Navbar = () => {
         }, navRef);
         return () => ctx.revert();
     }, []);
+
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+            gsap.to(menuRef.current, { y: '0%', duration: 0.6, ease: 'expo.inOut' });
+            gsap.fromTo(".menu-link", { y: 20, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 0.5, delay: 0.3, ease: 'power3.out' });
+        } else {
+            document.body.style.overflow = 'auto';
+            gsap.to(menuRef.current, { y: '-100%', duration: 0.5, ease: 'expo.inOut' });
+        }
+    }, [isMenuOpen]);
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const closeMenu = () => setIsMenuOpen(false);
 
     return (
         <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-6xl">
@@ -80,6 +96,40 @@ const Navbar = () => {
                         <button onClick={() => i18n.changeLanguage('id')} className={i18n.language === 'id' ? 'text-accent' : 'hover:text-white transition-colors'}>ID</button>
                     </div>
                     <MagneticButton primary className="text-sm px-6 py-3">{t('nav.bookNow')}</MagneticButton>
+                </div>
+
+                {/* Mobile Menu Toggle Button */}
+                <button
+                    onClick={toggleMenu}
+                    className="md:hidden relative z-[60] w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
+                >
+                    <span className={`w-6 h-[2px] bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
+                    <span className={`w-6 h-[2px] bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                    <span className={`w-6 h-[2px] bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
+                </button>
+            </div>
+
+            {/* Full Screen Mobile Overlay */}
+            <div
+                ref={menuRef}
+                className="fixed inset-0 min-h-[100dvh] bg-background/95 backdrop-blur-2xl z-40 flex flex-col justify-center items-center -translate-y-full md:hidden"
+            >
+                <div className="flex flex-col items-center gap-8 mb-16">
+                    <a href="#expedition" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.expeditions')}</a>
+                    <a href="#pricing" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.pricing')}</a>
+                    <a href="#social-proof" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.reviews')}</a>
+                    <a href="#faq" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.faq')}</a>
+                </div>
+
+                <div className="menu-link flex flex-col items-center gap-8">
+                    <div className="flex gap-4 p-2 bg-white/5 rounded-full border border-white/10 font-mono text-sm">
+                        <button onClick={() => { i18n.changeLanguage('en'); closeMenu(); }} className={`px-4 py-2 rounded-full transition-colors ${i18n.language === 'en' ? 'bg-accent text-white' : 'text-white/50 hover:text-white'}`}>English</button>
+                        <button onClick={() => { i18n.changeLanguage('es'); closeMenu(); }} className={`px-4 py-2 rounded-full transition-colors ${i18n.language === 'es' ? 'bg-accent text-white' : 'text-white/50 hover:text-white'}`}>Español</button>
+                        <button onClick={() => { i18n.changeLanguage('id'); closeMenu(); }} className={`px-4 py-2 rounded-full transition-colors ${i18n.language === 'id' ? 'bg-accent text-white' : 'text-white/50 hover:text-white'}`}>Indonesia</button>
+                    </div>
+                    <div onClick={closeMenu}>
+                        <MagneticButton primary className="text-lg px-10 py-4 w-full">{t('nav.bookNow')}</MagneticButton>
+                    </div>
                 </div>
             </div>
         </nav>
