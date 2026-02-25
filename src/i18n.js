@@ -155,7 +155,7 @@ export const resources = {
                 premium: "Expediciones Premium en Buggy",
                 conquer: "Conquista lo",
                 inaccessible: "Inaccesible.",
-                reserve: "Reserva Tu Lugar",
+                reserve: "Reserva tu Experiencia",
                 certified: "Buggies Certificados 800cc+",
                 location: "Lombok, Indonesia",
                 firstExperience: "La primera experiencia en buggy en Lombok"
@@ -166,24 +166,24 @@ export const resources = {
                 item3: { title: "Seguro Completo", desc: "Cobertura total, guías profesionales." }
             },
             telemetry: {
-                liveFeed: "Transmisión en directo",
+                liveFeed: "Creando aventura perfecta...",
                 msg1: "Estableciendo ruta todoterreno...",
                 msg2: "Accediendo al territorio de la Playa Secreta...",
                 msg3: "Desbloqueando el mirador de Prabu Hills...",
                 msg4: "Acuerdo exclusivo de aldea asegurado."
             },
             scheduler: {
-                save: "Guardar Llamada de Expedición",
+                save: "Realizar mi Reserva",
                 days: ['D', 'L', 'M', 'M', 'J', 'V', 'S']
             },
             features: {
                 title1: "Diseñado para la adrenalina.",
-                title2: "Diseñado para la seguridad absoluta.",
+                title2: "Optimizado para la seguridad absoluta.",
                 card1Title: "Seguridad Confidencial",
                 card1Desc: "Estándar internacional de seguridad. Buggies de 800cc+ y equipo esterilizado.",
                 card2Title: "Acceso Exclusivo",
                 card2Desc: "Rutas solo accesibles en 4x4. Los acuerdos con las aldeas otorgan acceso a la playa secreta y a Prabu Hills.",
-                card3Title: "El Arco Completo",
+                card3Title: "La Experiencia Definitiva",
                 card3Desc: "Viaje seleccionado de 3 horas, guías profesionales y comida tradicional Sasak."
             },
             philosophy: {
