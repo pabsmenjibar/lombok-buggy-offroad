@@ -80,39 +80,41 @@ const Navbar = () => {
     const closeMenu = () => setIsMenuOpen(false);
 
     return (
-        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-6xl">
-            <div ref={navRef} className="flex items-center justify-between px-6 py-4 rounded-full border border-transparent transition-all duration-500">
-                <div className="font-sans font-bold text-xl tracking-tighter">L.A.T.E.</div>
-                <div className="hidden md:flex items-center gap-8 font-mono text-sm uppercase tracking-widest text-white/70">
-                    <a href="#expedition" className="hover:text-accent hover:-translate-y-[1px] transition-all">{t('nav.expeditions')}</a>
-                    <a href="#pricing" className="hover:text-accent hover:-translate-y-[1px] transition-all">{t('nav.pricing')}</a>
-                    <a href="#social-proof" className="hover:text-accent hover:-translate-y-[1px] transition-all">{t('nav.reviews')}</a>
-                    <a href="#faq" className="hover:text-accent hover:-translate-y-[1px] transition-all">{t('nav.faq')}</a>
-                </div>
-                <div className="flex items-center gap-4">
-                    <div className="hidden md:flex gap-2 text-xs font-mono text-white/50 bg-black/20 px-3 py-1.5 rounded-full border border-white/10">
-                        <button onClick={() => i18n.changeLanguage('en')} className={i18n.language === 'en' ? 'text-accent' : 'hover:text-white transition-colors'}>EN</button>
-                        <button onClick={() => i18n.changeLanguage('es')} className={i18n.language === 'es' ? 'text-accent' : 'hover:text-white transition-colors'}>ES</button>
-                        <button onClick={() => i18n.changeLanguage('id')} className={i18n.language === 'id' ? 'text-accent' : 'hover:text-white transition-colors'}>ID</button>
+        <>
+            <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-6xl">
+                <div ref={navRef} className="flex items-center justify-between px-6 py-4 rounded-full border border-transparent transition-all duration-500">
+                    <div className="font-sans font-bold text-xl tracking-tighter">L.A.T.E.</div>
+                    <div className="hidden md:flex items-center gap-8 font-mono text-sm uppercase tracking-widest text-white/70">
+                        <a href="#expedition" className="hover:text-accent hover:-translate-y-[1px] transition-all">{t('nav.expeditions')}</a>
+                        <a href="#pricing" className="hover:text-accent hover:-translate-y-[1px] transition-all">{t('nav.pricing')}</a>
+                        <a href="#social-proof" className="hover:text-accent hover:-translate-y-[1px] transition-all">{t('nav.reviews')}</a>
+                        <a href="#faq" className="hover:text-accent hover:-translate-y-[1px] transition-all">{t('nav.faq')}</a>
                     </div>
-                    <MagneticButton primary className="text-sm px-6 py-3">{t('nav.bookNow')}</MagneticButton>
-                </div>
+                    <div className="flex items-center gap-4">
+                        <div className="hidden md:flex gap-2 text-xs font-mono text-white/50 bg-black/20 px-3 py-1.5 rounded-full border border-white/10">
+                            <button onClick={() => i18n.changeLanguage('en')} className={i18n.language === 'en' ? 'text-accent' : 'hover:text-white transition-colors'}>EN</button>
+                            <button onClick={() => i18n.changeLanguage('es')} className={i18n.language === 'es' ? 'text-accent' : 'hover:text-white transition-colors'}>ES</button>
+                            <button onClick={() => i18n.changeLanguage('id')} className={i18n.language === 'id' ? 'text-accent' : 'hover:text-white transition-colors'}>ID</button>
+                        </div>
+                        <MagneticButton primary className="text-sm px-6 py-3">{t('nav.bookNow')}</MagneticButton>
+                    </div>
 
-                {/* Mobile Menu Toggle Button */}
-                <button
-                    onClick={toggleMenu}
-                    className="md:hidden relative z-[60] w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
-                >
-                    <span className={`w-6 h-[2px] bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
-                    <span className={`w-6 h-[2px] bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                    <span className={`w-6 h-[2px] bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
-                </button>
-            </div>
+                    {/* Mobile Menu Toggle Button */}
+                    <button
+                        onClick={toggleMenu}
+                        className="md:hidden relative z-[60] w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
+                    >
+                        <span className={`w-6 h-[2px] bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
+                        <span className={`w-6 h-[2px] bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                        <span className={`w-6 h-[2px] bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
+                    </button>
+                </div>
+            </nav>
 
             {/* Full Screen Mobile Overlay */}
             <div
                 ref={menuRef}
-                className="fixed inset-0 min-h-[100dvh] bg-background/95 backdrop-blur-2xl z-40 flex flex-col justify-center items-center -translate-y-full md:hidden"
+                className="fixed inset-0 h-[100dvh] bg-background/95 backdrop-blur-2xl z-40 flex flex-col justify-center items-center -translate-y-full md:hidden"
             >
                 <div className="flex flex-col items-center gap-8 mb-16">
                     <a href="#expedition" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.expeditions')}</a>
@@ -132,7 +134,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-        </nav>
+        </>
     )
 }
 
