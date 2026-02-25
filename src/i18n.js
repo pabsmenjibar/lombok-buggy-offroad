@@ -11,7 +11,8 @@ export const resources = {
                 inaccessible: "Inaccessible.",
                 reserve: "Reserve Your Spot",
                 certified: "800cc+ Certified Buggies",
-                location: "Lombok, Indonesia"
+                location: "Lombok, Indonesia",
+                firstExperience: "The first buggy experience in Lombok"
             },
             shuffler: {
                 item1: { title: "800cc+ Certified", desc: "Roll-cage equipped high-performance." },
@@ -156,7 +157,8 @@ export const resources = {
                 inaccessible: "Inaccesible.",
                 reserve: "Reserva Tu Lugar",
                 certified: "Buggies Certificados 800cc+",
-                location: "Lombok, Indonesia"
+                location: "Lombok, Indonesia",
+                firstExperience: "La primera experiencia en buggy en Lombok"
             },
             shuffler: {
                 item1: { title: "Certificado 800cc+", desc: "Alto rendimiento equipado con jaula antivuelco." },
@@ -301,7 +303,8 @@ export const resources = {
                 inaccessible: "Tak Terjangkau.",
                 reserve: "Pesan Tempat Anda",
                 certified: "Buggy Bersertifikat 800cc+",
-                location: "Lombok, Indonesia"
+                location: "Lombok, Indonesia",
+                firstExperience: "Pengalaman buggy pertama di Lombok"
             },
             shuffler: {
                 item1: { title: "Bersertifikat 800cc+", desc: "Performa tinggi dilengkapi roll-cage." },

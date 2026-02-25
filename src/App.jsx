@@ -13,14 +13,15 @@ const MagneticButton = ({ children, className = '', primary = false }) => {
         if (!btn) return;
         const xTo = gsap.quickTo(btn, "x", { duration: 1, ease: "elastic.out(1, 0.3)" });
         const yTo = gsap.quickTo(btn, "y", { duration: 1, ease: "elastic.out(1, 0.3)" });
+        const rotateTo = gsap.quickTo(btn, "rotation", { duration: 1, ease: "elastic.out(1, 0.3)" });
 
         const handleMouseMove = (e) => {
             const rect = btn.getBoundingClientRect();
             const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
             const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
-            xTo(x); yTo(y);
+            xTo(x); yTo(y); rotateTo(x * 0.1);
         };
-        const handleMouseLeave = () => { xTo(0); yTo(0); };
+        const handleMouseLeave = () => { xTo(0); yTo(0); rotateTo(0); };
 
         btn.addEventListener('mousemove', handleMouseMove);
         btn.addEventListener('mouseleave', handleMouseLeave);
@@ -92,24 +93,37 @@ const Hero = () => {
     useEffect(() => {
         const ctx = gsap.context(() => {
             gsap.from(".hero-elem", {
-                y: 60,
+                y: 100,
                 opacity: 0,
-                stagger: 0.1,
-                duration: 1.2,
-                ease: "power3.out",
+                rotateX: -15,
+                transformPerspective: 1000,
+                stagger: { amount: 0.4 },
+                duration: 1.8,
+                ease: "expo.out",
                 delay: 0.2
+            });
+
+            gsap.to(".hero-img", {
+                yPercent: 30,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: comp.current,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1
+                }
             });
         }, comp);
         return () => ctx.revert();
     }, []);
 
     return (
-        <section ref={comp} className="relative h-[100dvh] w-full flex items-end pb-24 px-6 md:px-12 lg:px-24">
+        <section ref={comp} className="relative h-[100dvh] w-full flex items-end pb-24 px-6 md:px-12 lg:px-24 overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <img
                     src="https://images.unsplash.com/photo-1517962140171-2dfc01caecb7?auto=format&fit=crop&q=80&w=2600"
                     alt="L.A.T.E. Off-road Buggy"
-                    className="w-full h-full object-cover object-center brightness-75 grayscale-[20%]"
+                    className="hero-img w-full h-[130%] -top-[15%] relative object-cover object-center brightness-75 grayscale-[20%]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
                 <div className="absolute inset-0 bg-primary/30"></div>
@@ -119,11 +133,14 @@ const Hero = () => {
                 <div className="hero-elem font-mono text-accent text-sm md:text-base uppercase tracking-widest mb-6 flex items-center gap-3">
                     <span className="w-8 h-[2px] bg-accent"></span> {t('hero.premium')}
                 </div>
-                <h1 className="hero-elem leading-[0.9] flex flex-col mb-8">
+                <h1 className="hero-elem leading-[0.9] flex flex-col mb-6">
                     <span className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl tracking-tighter">{t('hero.conquer')}</span>
                     <span className="font-drama italic text-6xl md:text-8xl lg:text-9xl text-white mt-2 pr-4">{t('hero.inaccessible')}</span>
                 </h1>
-                <div className="hero-elem flex flex-wrap items-center gap-6 mt-12">
+                <div className="hero-elem font-mono text-white/70 text-base md:text-lg mb-10 tracking-wide border-l-2 border-accent pl-4">
+                    {t('hero.firstExperience')}
+                </div>
+                <div className="hero-elem flex flex-wrap items-center gap-6">
                     <MagneticButton primary>{t('hero.reserve')} <ArrowRight className="w-5 h-5" /></MagneticButton>
                     <div className="font-mono text-white/50 text-xs uppercase tracking-widest leading-relaxed">
                         {t('hero.certified')} <br /> {t('hero.location')}
@@ -402,9 +419,11 @@ const Protocol = () => {
                             end: "top top",
                             scrub: true,
                         },
-                        scale: 0.9,
-                        opacity: 0.5,
-                        filter: "blur(20px)",
+                        scale: 0.85,
+                        opacity: 0.3,
+                        rotationX: -5,
+                        transformOrigin: "top center",
+                        filter: "blur(30px)",
                     });
                 }
             });
