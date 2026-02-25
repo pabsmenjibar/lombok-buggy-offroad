@@ -264,7 +264,7 @@ const CursorScheduler = () => {
             tl.to(cursorRef.current, { opacity: 1, duration: 0.3 });
             tl.to(cursorRef.current, { x: 120, y: 60, duration: 1, ease: 'power2.inOut' });
             tl.to(cursorRef.current, { scale: 0.8, duration: 0.1 });
-            tl.call(() => setActiveDay(3));
+            tl.call(() => setActiveDay(2));
             tl.to(cursorRef.current, { scale: 1, duration: 0.1 });
             tl.to(cursorRef.current, { x: 150, y: 155, duration: 0.8, ease: 'power2.inOut', delay: 0.5 });
             tl.to(cursorRef.current, { scale: 0.8, duration: 0.1 });
