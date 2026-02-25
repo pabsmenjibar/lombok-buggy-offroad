@@ -41,8 +41,8 @@ export const resources = {
                 card3Desc: "Curated 3-hour journey, professional guides, and a traditional Sasak meal included."
             },
             philosophy: {
-                p1: "Most competitors focus on: cheap rentals and unguided dirt tracks.",
-                p2: "We focus on: curated ",
+                p1: "True exploration begins where the paved roads end.",
+                p2: "We deliver exclusive, curated ",
                 p3: "expeditions."
             },
             protocol: {
@@ -187,9 +187,9 @@ export const resources = {
                 card3Desc: "Viaje seleccionado de 3 horas, guías profesionales y comida tradicional Sasak."
             },
             philosophy: {
-                p1: "La mayoría se enfoca en: alquileres baratos y pistas sin guía.",
-                p2: "Nosotros nos enfocamos en: ",
-                p3: "expediciones seleccionadas."
+                p1: "La verdadera exploración comienza donde terminan los caminos trazados.",
+                p2: "Ofrecemos exclusivas y cuidadas ",
+                p3: "expediciones."
             },
             protocol: {
                 title: "El Arco.",
@@ -333,8 +333,8 @@ export const resources = {
                 card3Desc: "Perjalanan 3 jam, pemandu profesional, dan makanan tradisional Sasak."
             },
             philosophy: {
-                p1: "Kebanyakan kompetitor fokus pada: sewa murah dan trek tanpa pemandu.",
-                p2: "Kami fokus pada: ",
+                p1: "Eksplorasi sejati dimulai di mana jalan beraspal berakhir.",
+                p2: "Kami menghadirkan secara eksklusif, ",
                 p3: "ekspedisi yang dikurasi."
             },
             protocol: {
