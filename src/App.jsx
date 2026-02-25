@@ -114,9 +114,9 @@ const Navbar = () => {
             {/* Full Screen Mobile Overlay */}
             <div
                 ref={menuRef}
-                className="fixed inset-0 h-[100dvh] bg-background/95 backdrop-blur-2xl z-40 flex flex-col justify-center items-center -translate-y-full md:hidden"
+                className="fixed inset-0 h-[100dvh] bg-background/98 backdrop-blur-3xl z-40 flex flex-col justify-between items-center -translate-y-full md:hidden pt-36 pb-12 px-6"
             >
-                <div className="flex flex-col items-center gap-8 mb-32">
+                <div className="flex flex-col items-center justify-center gap-8 mt-4">
                     <a href="#expedition" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.expeditions')}</a>
                     <a href="#pricing" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.pricing')}</a>
                     <a href="#social-proof" onClick={closeMenu} className="menu-link font-sans font-bold text-4xl text-white hover:text-accent transition-colors">{t('nav.reviews')}</a>
